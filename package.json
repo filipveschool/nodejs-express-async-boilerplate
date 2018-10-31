@@ -15,10 +15,11 @@
   "author": "Filip Vanden Eynde",
   "scripts": {
     "startdebug": "set DEBUG=nodejs-express-async-boilerplate:* & npm start",
-    "start": "cross-env NODE_ENV=development node server",
-    "start:tunnel": "cross-env NODE_ENV=development ENABLE_TUNNEL=true node server",
+    "startdebugreload": "set DEBUG=nodejs-express-async-boilerplate:* & nodemon start",
+    "start": "cross-env NODE_ENV=development node app",
+    "start:tunnel": "cross-env NODE_ENV=development ENABLE_TUNNEL=true node app",
     "start:production": "npm run test && npm run build && npm run start:prod",
-    "start:prod": "cross-env NODE_ENV=production node server",
+    "start:prod": "cross-env NODE_ENV=production node app",
     "generate": "plop --plopfile internals/generators/index.js",
     "lint": "npm run lint:js",
     "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern internals/scripts",
@@ -28,17 +29,27 @@
     "prettify": "prettier --write"
   },
   "dependencies": {
+    "app-root-path": "^2.1.0",
     "bluebird": "^3.5.2",
     "chalk": "^2.4.1",
     "compression": "^1.7.3",
     "cookie-parser": "~1.4.3",
+    "cors": "^2.8.4",
     "cross-env": "^5.2.0",
     "debug": "~2.6.9",
+    "dotenv": "^6.1.0",
     "express": "~4.16.0",
+    "express-winston": "^3.0.1",
+    "helmet": "^3.14.0",
     "ip": "^1.1.5",
     "lodash": "^4.17.11",
     "minimist": "^1.2.0",
-    "morgan": "~1.9.0"
+    "morgan": "~1.9.0",
+    "pm2": "^3.2.2",
+    "pretty-error": "^2.1.1",
+    "rest-api-errors": "^1.2.1",
+    "uuid": "^3.3.2",
+    "winston": "^3.1.0"
   },
   "devDependencies": {
     "eslint": "^5.8.0",

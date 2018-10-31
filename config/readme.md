@@ -1,0 +1,1 @@
+Contains all of our application configurations, it can be express config middlewares, or passport.js config files or other files related. When having one place to configure your app it is much easier to refactor or fix config related bugs later.

@@ -1,9 +1,11 @@
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const mongoose = require('mongoose');
+const {Schema} = mongoose;
+
 const saltRounds = 10;
 
-const userSchema = new mongoose.Schema(
+const userSchema = new Schema(
   {
     email: { type: String, unique: true },
     password: String,
@@ -26,6 +28,10 @@ const userSchema = new mongoose.Schema(
       website: String,
       picture: String,
     },
+    cars: [{
+      type: Schema.Types.ObjectId,
+      ref: 'car',
+    }]
   },
   { timestamps: true },
 );
@@ -93,6 +99,6 @@ userSchema.methods.gravatar = function gravatar(size) {
   return `https://gravatar.com/avatar/${md5}?s=${size}&d=retro`;
 };
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('user', userSchema);
 
 module.exports = User;

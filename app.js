@@ -4,6 +4,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
+const dotenv = require('dotenv');
 const logger = require('morgan');
 const compression = require('compression');
 const cors = require("cors");
@@ -17,6 +18,8 @@ const ngrok =
   (isDev && process.env.ENABLE_TUNNEL) || argv.tunnel
     ? require('ngrok')
     : false;
+
+require('dotenv');
 
 const app = express();
 // #####################################################################################################################
@@ -100,7 +103,12 @@ app.use((req, res, next) => {
 // ROUTES
 // #####################################################################################################################
 // #####################################################################################################################
-require('./api/v1/routes/index')(app);
+require('./api/routes/index')(app);
+
+/**
+ * API keys and Passport configuration.
+ */
+const passportConfig = require('./config/passport');
 
 // #####################################################################################################################
 // #####################################################################################################################
@@ -179,3 +187,5 @@ function wrap(fn) {
     throw new Error('Function must take 2 or 3 arguments');
   }
 }
+
+module.exports = app;

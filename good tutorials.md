@@ -8,3 +8,10 @@ https://apiko.com/blog/boilerplate-api-with-node-js-express-mongodb/
 
 https://medium.com/@saravananr_93203/better-route-management-in-expressjs-7acec7fba528
 
+https://jaketrent.com/post/store-local-user-password-bcrypt/
+
+https://jaketrent.com/post/store-local-user-password-bcrypt/
+https://jaketrent.com/post/handle-errors-node-app/
+https://jaketrent.com/post/environment-variables-in-node/
+
+

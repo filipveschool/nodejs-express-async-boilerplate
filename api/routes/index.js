@@ -11,7 +11,7 @@ const appRoot = require('app-root-path');
 const fs = require('fs');
 const validFileTypes = ['js'];
 const excluded = ['index'];
-const apiPrefixVersion = '/api/v1';
+const apiPrefixVersion = '/api';
 
 function requireFiles(directory, app) {
   fs.readdirSync(directory).forEach(fileName => {

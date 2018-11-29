@@ -10,6 +10,7 @@ module.exports = {
   plugins: ['prettier'],
   env: {
     browser: true,
+    mocha: true,
     node: true,
     es6: true,
   },
